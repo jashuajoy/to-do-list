@@ -5,14 +5,11 @@ const _ = require("lodash");
 
 const app = express();
 
-// const date = require(__dirname + "/date.js");
-
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.set("view engine", "ejs");
 
-const mongoAtlasCluster = "mongodb+srv://admin-joy:123joy@cluster0-6qspo.mongodb.net/todolistDB";
+const mongoAtlasCluster = "mongodb+srv://admin-joy:4247@cluster0-6qspo.mongodb.net/todolistDB";
 const mongoLocalCluster = "mongodb://localhost:27017/todolistDB";
 
 mongoose.connect(mongoAtlasCluster, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -86,10 +83,6 @@ app.get("/:customListName", function(req, res){
 
     
 });
-
-// app.get("/work", function(req, res){
-//     res.render("list", {listTitle: "Work", newitem: workItems});
-// });
 
 app.post("/", function(req, res) { 
     const itemName = req.body.newItem;
